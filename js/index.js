@@ -36,58 +36,66 @@ console.log(otherDays);
 
 let weather=[];
 
-function getWeather(search){
-var req = new XMLHttpRequest();
+// function getWeather(search){
+// var req = new XMLHttpRequest();
 
-req.open("GET",`http://api.weatherapi.com/v1/forecast.json?key=92599ddb81ce4a66b9a212450230203&q=${search}&days=3&aqi=no&alerts=no`)
+// req.open("GET",`http://api.weatherapi.com/v1/forecast.json?key=92599ddb81ce4a66b9a212450230203&q=${search}&days=3&aqi=no&alerts=no`)
 
-req.send();
+// req.send();
 
-req.addEventListener("loadend",function(e){
-if(req.status==200){
-console.log("Success");
-weather=JSON.parse(req.response);
-displayWeather();
+// req.addEventListener("loadend",function(e){
+// if(req.status==200){
+// console.log("Success");
+// weather=JSON.parse(req.response);
+// displayWeather();
 
-}
-})
+// }
+// })
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function getWeather(search){
+
+  var res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=92599ddb81ce4a66b9a212450230203&q=${search}&days=3&aqi=no&alerts=no
+  `)
+
+    
+      if(res.ok && res.status!=400){
+      weather = await res.json();
+      displayWeather();
+      }
+
+  }
+  
+
 
 getWeather('cairo');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// async function getWeather(search){
-
-//   var res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=92599ddb81ce4a66b9a212450230203&q=${search}&days=3&aqi=no&alerts=no
-//   `)
-//   weather = await res.json();
-//   displayWeather();
-// }
 
 
 function displayWeather(){
@@ -157,7 +165,9 @@ function displayWeather(){
   document.getElementById('general-forecast').innerHTML=cartona
 
 
+  
 }
+
 
 
 
