@@ -54,6 +54,8 @@ displayWeather();
 
 }
 
+getWeather('cairo');
+
 
 
 
@@ -100,7 +102,6 @@ function displayWeather(){
       <p>${today}</p>
       <p>${numeric_day} ${todayMonth}</p>
     </div>
-
     <div class="body">
         <h5 class="text-white">${weather.location.name}</h5>
         <span class="d-flex justify-content-between" >
@@ -123,18 +124,15 @@ function displayWeather(){
           East
         </div>
       </div>
-
     </div>
     <div class="col-md-4 second text-white">
       <div class="header-2 text-center">
         <p>${otherDays[0]}</p>
       </div>
-
       <div class="content-2 text-center">
         <img src="${weather.forecast.forecastday[0].day.condition.icon}" alt="sun">
         <h2>${weather.forecast.forecastday[0].day.maxtemp_c} <span class="sub1">o</span> c</h2> 
         <p>${weather.forecast.forecastday[0].day.mintemp_c} <span class="sub1">o</span> c</p>
-
         <p class="text-info">${weather.forecast.forecastday[0].day.condition.text}</p>
       </div>
     </div>
@@ -146,7 +144,6 @@ function displayWeather(){
         <img src="${weather.forecast.forecastday[1].day.condition.icon}" alt="sun">
         <h2>${weather.forecast.forecastday[1].day.maxtemp_c}</h2>
         <p>${weather.forecast.forecastday[1].day.mintemp_c}<span class="sub1">o</span> c</p>
-
         <p class="text-info">${weather.forecast.forecastday[1].day.condition.text} </p>
       </div>
     </div>
@@ -161,10 +158,6 @@ function displayWeather(){
 
 
 }
-
-
-getWeather('cairo');
-
 
 
 
